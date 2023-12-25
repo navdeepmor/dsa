@@ -278,8 +278,6 @@
 
 # Stacks And Queues > Balanced Brackets
 
-
-
 # Stacks And Queues > Next Greater Element To The Right
 
     ip: [2 5 9 3 1 12 6 8 7]
@@ -585,8 +583,7 @@ public class Main {
 
 # Hashmap And Heap For Beginners > Write Priority Queue Using Heap **
 Heap Properties: 1. HOP? - Parent higher priority then child 2. CBT?
-
-JAVA:
+- JAVA:
 public static class PriorityQueue {
     ArrayList<Integer> data;
 
@@ -640,12 +637,9 @@ public static class PriorityQueue {
         }
     }
 }
-
-CPP:
+- CPP:
 #include<functional>
-
 using namespace std;
-
 template<class T, typename Compare = less<T>>
 class MyPriorityQueue {
     vector<T> arr;
@@ -715,7 +709,6 @@ class MyPriorityQueue {
         return arr.size(); 
     }
 };
-
 int main() {
     MyPriorityQueue<int, greater<int>> pq; 
     pq.push(43);
@@ -730,7 +723,7 @@ int main() {
 hint: HM - ArrayList<LinkedList<>> | key --> HashFn --> bucket index
 
 avg case: O(lambada) | worse case: O(n) - that is all key, value pair were put in same buckets only when all of pair gets the same HC   
-JAVA:
+- JAVA:
 public static class HashMap<K, V> {
     private class HMNode {
         K key;
@@ -850,8 +843,7 @@ public static class HashMap<K, V> {
         return size;
     }
 }
-
-CPP:
+- CPP:
 #include<iostream>
 #include<cmath>
 using namespace std;
@@ -966,7 +958,6 @@ class MyUnorderedMap {
         return n;
     }
 };
-
 int main() {
     MyUnorderedMap<string, int>* umap = new MyUnorderedMap<string, int>();
     umap->insert("navdeep", 101);
@@ -998,7 +989,7 @@ O(nlog(k)), O(k)
 # Hashmap And Heap For Beginners > Efficient Heap Construction **
 hint: downheapify()
 upheapify - O(nlog(n)) | downheapify - O(n) 
-JAVA:
+- JAVA:
 public static class PriorityQueue {
     ArrayList<Integer> data;
 
@@ -1022,7 +1013,7 @@ public static class PriorityQueue {
         upheapify(data.size() - 1);                                                 // O(nlog(n)) - last row of element does large work
     }
 }
-CPP:
+- CPP:
 #include<functional>
 using namespace std;
 template<typename T, typename Compare = less<T>>
@@ -1111,7 +1102,6 @@ class MyPriorityQueue {
         return arr.size();
     }
 };
-
 int main() {
     vector<int> arr{4, 7, 12, 41, 9};
     MyPriorityQueue<int, greater<int>>* pq = new MyPriorityQueue<int, greater<int>>(arr);
@@ -1119,7 +1109,9 @@ int main() {
     return 0;
 }
 
+
 # Hashmap And Heap For Beginners > Heap - Comparable Vs Comparator **
+- JAVA:
 public static class PriorityQueue<T> {
     ArrayList<T> data;
 
@@ -1185,6 +1177,132 @@ public static class PriorityQueue<T> {
         //    upheapify(pi);
         // }
     }
+}
+- CPP:
+#include<functional>
+using namespace std;
+class Node {
+    public:
+    int position;
+    int value;
+    
+    Node(int position, int value) : position(position), value(value) {};
+    
+    bool operator>(const Node& other) const {
+        return value > other.value;
+    }
+    
+    bool operator<(const Node& other) const {
+        return value < other.value;
+    }
+};
+template<typename T, typename Compare = less<T>>
+class MyPriorityQueue {
+    vector<T> arr;
+    Compare comparator;
+    
+    void upheapify(int ci) {
+        if(ci == 0) {
+            return;
+        }
+        int pi = (ci - 1) / 2;
+        if(comparator(arr[ci], arr[pi])) {
+            swap(arr[ci], arr[pi]);
+            upheapify(pi);
+        }
+    }
+    
+    void downheapify(int pi) {
+        int li = (2 * pi) + 1;
+        int ri = (2 * pi) + 2;
+        int mini = pi;
+        
+        if(li < size() && comparator(arr[li], arr[mini])) {
+            mini = li;
+        }
+        if(ri < size() && comparator(arr[ri], arr[mini])) {
+            mini = ri;
+        }
+        
+        if(mini != pi) {
+            swap(arr[mini], arr[pi]);
+            downheapify(mini);
+        }
+    }
+    
+    public:
+    MyPriorityQueue() = default;
+    
+    MyPriorityQueue(vector<T> vec) {
+        // inefficent heap construction from array of values
+        /*
+        for(int i = 0; i < vec.size(); i++) {
+            push(vec[i]); 
+        }
+        */
+        
+        // efficient heap construction
+        for(int i = 0; i < vec.size(); i++) {
+            arr.push_back(vec[i]); 
+        }
+        for(int i = vec.size() / 2 - 1; i >= 0; i--) {
+            downheapify(i);
+        }
+    }
+    
+    template<typename... Args>
+    void push(Args... args) {
+        arr.push_back(T(forward<Args>(args)...));
+        upheapify(size() - 1);
+    }
+    
+    T pop() {
+        if(size() == 0) {
+            throw out_of_range("Priority queue is empty");
+        }
+        int value = arr[0];
+        swap(arr[0], arr[size() - 1]);
+        arr.pop_back();
+        downheapify(0);
+        return value;
+    }
+    
+    T top() const {
+        if(size() == 0) {
+            throw out_of_range("Priority queue empty");
+        }
+        return arr[0];
+    }
+    
+    bool empty() const {
+        return arr.empty();
+    }
+    
+    size_t size() const {
+        return arr.size();
+    }
+};
+struct StringLengthComparator {
+    bool operator() (const string& str1, const string& str2) {
+        return str1.size() > str2.size();
+    }
+};
+/*
+struct NodeComparator {
+    bool operator() (Node node1, Node node2) const {
+        return node1.position < node2.position;
+    }
+};
+*/
+int main() {
+    //vector<string> arr{"map", "list", "tree", "link", "heap", "array"};
+    //MyPriorityQueue<string, StringLengthComparator>* pq = new MyPriorityQueue<string, StringLengthComparator>(arr);
+    //cout << pq->top() << endl;
+    
+    vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
+    MyPriorityQueue<Node, greater<Node>>* pq = new MyPriorityQueue<Node, greater<Node>>(arr);
+    cout << pq->top().value << endl;
+    return 0;
 }
 
 # Graphs for Beginners > Get Connected Components Of A Graph
@@ -1478,6 +1596,7 @@ end 1   0       1       2       3
           17   17   18    30   30   30   25    17   17
 
     -----------------------------------------------------------------------------------------------------------
+
 
 # Other Questions: 
 
