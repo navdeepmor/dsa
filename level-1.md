@@ -1188,6 +1188,7 @@ class Node {
     
     Node(int position, int value) : position(position), value(value) {};
     
+    // COMPARABLE
     bool operator>(const Node& other) const {
         return value > other.value;
     }
@@ -1282,7 +1283,8 @@ class MyPriorityQueue {
         return arr.size();
     }
 };
-struct StringLengthComparator {
+// COMPARATOR
+struct StringLengthComparator {  
     bool operator() (const string& str1, const string& str2) {
         return str1.size() > str2.size();
     }
@@ -1301,6 +1303,37 @@ int main() {
     
     vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
     MyPriorityQueue<Node, greater<Node>>* pq = new MyPriorityQueue<Node, greater<Node>>(arr);
+    cout << pq->top().value << endl;
+    return 0;
+}
+- How to use Comparable, Comparator with c++ stl priority_queue:
+using namespace std;
+class Node {
+    public:
+    int position;
+    int value;
+    
+    Node(int position, int value) : position(position), value(value) {}; 
+    
+    // comparable
+    bool operator>(const Node& otherNode)  const {
+        return otherNode.position > this->position;
+    }
+    
+    bool operator<(const Node& otherNode) const {
+        return  otherNode.position < this->position;
+    }
+};
+// comparator
+struct NodeComparator {
+    bool operator()(const Node& node1, const Node& node2) const {
+        return node2.position > node1.position;
+    }
+};
+int main() {
+    vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
+    priority_queue<Node, vector<Node>, greater<Node>>* pq = new priority_queue<Node, vector<Node>, greater<Node>>(arr.begin(), arr.end());
+    //priority_queue<Node, vector<Node>, NodeComparator>* pq = new priority_queue<Node, vector<Node>, NodeComparator>(arr.begin(), arr.end());
     cout << pq->top().value << endl;
     return 0;
 }
