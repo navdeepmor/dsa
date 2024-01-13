@@ -165,22 +165,24 @@
     3:                       4:                     5:
 
 
-# Linked Lists For Beginners > Reverse Linked List (pointer Iterative)
+# Linked Lists For Beginners 
 
+- Reverse Linked List (pointer Iterative)
+    - Reference
          h                       t
         60 <- 20    30 -> 40 -> 50 -> null
                 p     c     nbr
 
-# Linked Lists For Beginners > Kth Node From End Of Linked List
-
+- Kth Node From End Of Linked List
+    - Reference
          h                       t
         60 -> 20 -> 30 -> 40 -> 50 -> null
          s
                      f   
 
 
-# Linked Lists For Beginners > Merge Two Sorted Linked List **
-
+- Merge Two Sorted Linked List **
+    - Reference
         c1
         10 -> 20 -> 30 -> 40 -> 50 -> null
                             
@@ -195,42 +197,45 @@
     d                                c2                           
    -1 -> 7 -> 9    12    35    45    60 -> null
 
-# Linked Lists For Beginners > Merge Sort A Linked List
-   
-                                        h                           t
-                                        10 -> 2 -> 19 -> 22 -> 3 -> 7 -> null
-                                                /                  \
-                                    10 -> 2 -> 19 -> null   22 -> 3 -> 7 -> null
+- Merge Sort A Linked List
+    - Reference
+            h                           t
+            10 -> 2 -> 19 -> 22 -> 3 -> 7 -> null
+                    /                  \
+        10 -> 2 -> 19 -> null   22 -> 3 -> 7 -> null
 
-# Linked Lists For Beginners > Remove Duplicates In A Sorted Linked List
-                       ____
-    h                /      \                    t
-    2    2 -> 2 -> 3    3 -> 5 -> 5 -> 5 -> 5 -> 5 -> null
-      \ _______  /           p
-                                                      c
+- Remove Duplicates In A Sorted Linked List
+    - Reference
+                           ____
+        h                /      \                    t
+        2    2 -> 2 -> 3    3 -> 5 -> 5 -> 5 -> 5 -> 5 -> null
+          \ _______  /           p
+                                                          c
 
-# Linked Lists For Beginners > Odd Even Linked List
+- Odd Even Linked List
+    - Reference
              ______________
     h      /                \     t         
     2 -> 8    9 -> 1 -> 5    4 -> 3 -> null
     eh        oh         \ _____ /     c
                              e    o
 
-# Linked Lists For Beginners > K Reverse In Linked List *** 
- 
-    hint: addFirst
+- K Reverse In Linked List *** 
+    - HINT:
+        addFirst
 
-    11 / 3 = 3 
+        11 / 3 = 3 
 
-    0
+        0
 
-                       10 -> 11 -> null
-                        c     f
+                        10 -> 11 -> null
+                            c     f
 
-    oh                       ot            th       tt
-    3 -> 2 -> 1 ->  6 -> 5 -> 4 ->         9 -> 8 -> 7
+        oh                       ot            th       tt
+        3 -> 2 -> 1 ->  6 -> 5 -> 4 ->         9 -> 8 -> 7
 
-# Linked Lists For Beginners > Fold A Linked List
+- Fold A Linked List
+    - Reference
         ______________
       /     _____      \
      /    /       \
@@ -242,30 +247,30 @@
               r
                    t
 
-# Linked Lists For Beginners > Add Two Linked Lists ***
+- Add Two Linked Lists ***
+    - HINT:
+        3    2    1     0   
+        9 -> 9 -> 9 -> null
 
-    3    2    1     0   
-    9 -> 9 -> 9 -> null
+        4    3    2    1     0
+        1 -> 0 -> 0 -> 0 -> null    
+        
 
-    4    3    2    1     0
-    1 -> 0 -> 0 -> 0 -> null    
-    
+        | null(0) null(0)|   RETURN 0 AS CARRY
+        | 9(1)      0(1) |   ADD WHILE MOVE DOWN *ONLY IF PLACE VALUE MATCHS 
+        | 9(2)      0(2) |  
+        | 9(3)      0(3) |   
+        | 9(3)      1(4) |   WE WOULDN'T ADD WILL WHILE MOVE UP 
+         ----------------
+                stack
 
-   | null(0) null(0)|   RETURN 0 AS CARRY
-   | 9(1)      0(1) |   ADD WHILE MOVE DOWN *ONLY IF PLACE VALUE MATCHS 
-   | 9(2)      0(2) |  
-   | 9(3)      0(3) |   
-   | 9(3)      1(4) |   WE WOULDN'T ADD WILL WHILE MOVE UP 
-    ----------------
-         stack
-
-# Linked Lists For Beginners > Intersection Point Of Linked Lists ** 
-
-                             p1
-    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null
-                      /
-            9 -> 8 -> 
-                                        p2
+- Intersection Point Of Linked Lists ** 
+    - Reference
+                                p1
+        1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null
+                          /
+                9 -> 8 -> 
+                                            p2
 
 # Stacks And Queues > Duplicate Brackets
     1. ((a + b) + (c + d)) - balance
@@ -581,762 +586,787 @@ public class Main {
 
 }
 
-# Hashmap And Heap For Beginners > Write Priority Queue Using Heap **
-Heap Properties: 1. HOP? - Parent higher priority then child 2. CBT?
-- JAVA:
-public static class PriorityQueue {
-    ArrayList<Integer> data;
+# Hashmap And Heap For Beginners 
 
-    public void add(int val) {
-        data.add(val);
-        upheapify(data.size() - 1);
-    }
+- Longest Consecutive Sequence Of Elements *
 
-    private void upheapify(int i) {
-        if(i == 0) return;
+- Write Hashmap **  
+    - HINT: 
+        HM - ArrayList<LinkedList<>> | key --> HashFn --> bucket index
+    - TIME COMPLEXITY:
+        - avg case: 
+            O(lambada)
+        - worse case: 
+            O(n) - that is all key, value pair were put in same buckets only when all of pair gets the same HC   
+    - JAVA:
+    public static class HashMap<K, V> {
+        private class HMNode {
+            K key;
+            V value;
 
-        int pi = (i - 1) / 2;
-        if(data.get(i) < data.get(pi)) {
-            swap(i, pi)
-            upheapify(pi);
+            HMNode(K newKey, V newValue) {
+                this.key = newKey;
+                this.value = newValue;
+            }
         }
-    }
 
-    private void swap(int i, int j) {
-        int tmp = data.get(i);
-        data.set(i, data.get(j));
-        data.set(j, tmp);
-    }
+        private int size = 0;
+        private LinkedList<HMNode>[] buckets; // buckets.length = N
 
-    public int remove() {
-        if(data.size() == 0) {
-            System.out.println("Underflow");
+        public HashMap() {
+            initBuckets(4);
+            size = 0;
+        }
+
+        private void initBuckets(int N) {
+            buckets = new LinkedList<>[];
+            for(int bi = 0; bi < N; bi++) {
+                buckets[i] = new LinkedList<>();
+            }
+        }
+
+        public void put(K key, V value) throws Exception {
+            int bi = hashFn(key);
+            int di = getIdxWithinBucket(bi, key);
+            
+            if(di == -1) {
+                buckets[bi].add(new HMNode(key, value));    // case: insert
+                size++;
+            } else {
+                HMNode node = buckets[bi].get(di)           
+                node.value = value;                         // case: update
+            }
+
+            double lambda = size * 1.0 / buckets.length;    // size is multi. with 1.0 convert it into double
+            if(lambda > 2.0) {
+                rehash();
+            }
+        }
+
+        private void rehash() throws Exception {
+            LinkedList<HMNode>[] oldBkts = buckets;
+
+            initBuckets(oldBts.length * 2);
+            size = 0;
+
+            for(int bi = 0; bi < oldBkts.length; bi++) {
+                for(HMNode node: oldBkts[i]) {
+                    put(node.key, node.value);
+                }
+            }
+        }
+
+        private int hashfn(K key) {
+            int hc = key.hashCode();
+            return Math.abs(hc) % buckets.length;
+        }
+
+        private int getIdxWithinBucket(int bi, K key) {
+            int di = 0;
+            for(HMNode node: buckets[bi]) {
+                if(node.key.equals(key)) {
+                    return di;
+                }
+                di++;
+            }
+
             return -1;
         }
 
-        int rootVal = data.get(0);
-        swap(0, data.size() - 1);
-        downheapify(0);
-        return rootVal;
-    }
+        public V get(K key) {
+            int bi = hashFn(key);
+            int di = getIdxWithinBucket(bi, key);
 
-    private void downheapify(int pi) {
-        int mi = pi;
-        int li = (2 * pi + 1);
-        int ri = (2 * pi + 2);
-
-        if(li < data.size() && data.get(li) < data.get(mi)) {
-            mi = li;
-        } else if(ri < data.size() && data.get(ri) < data.get(mi)) {
-            mi = ri;
-        }
-
-        if(mi != pi) {
-            swap(pi, mi);
-            downheapify(mi);
-        }
-    }
-}
-- CPP:
-#include<functional>
-using namespace std;
-template<class T, typename Compare = less<T>>
-class MyPriorityQueue {
-    vector<T> arr;
-    Compare comparator;
-    
-    void downheapify(int pi) {
-        int li = (2 * pi) + 1;
-        int ri = (2 * pi) + 2; 
-        int mini = pi;
-        
-        if(li < size() && comparator(arr[li], arr[mini])) {
-            mini = li;    
-        }
-        if(ri < size() && comparator(arr[ri], arr[mini])) {
-            mini = ri; 
-        }
-        
-        if(mini != pi) {
-            swap(arr[mini], arr[pi]);
-            downheapify(mini);
-        }
-    }
-    
-    void upheapify(int i) {
-        if(i == 0) {
-            return; 
-        }
-        int pi = (i - 1) / 2;
-        if(comparator(arr[i], arr[pi])) {
-            swap(arr[i], arr[pi]);
-            upheapify(pi);
-        }
-    }
-    
-    public:
-    MyPriorityQueue() = default;
-    
-    template<typename... Args>
-    void push(Args&&... args) {
-        arr.push_back(T(forward<Args>(args)...));
-        upheapify(size() - 1);
-    }
-    
-    T pop() {
-        if(size() == 0) {
-            throw out_of_range("Priority queue is empty"); 
-        }
-        int value = arr[0];
-        swap(arr[0], arr[size() - 1]);
-        arr.pop_back();
-        downheapify(0);
-        return value;
-    }
-    
-    T top() const {
-        if(size() == 0) {
-            throw out_of_range("Priority queue is empty");
-        }
-        return arr[0];
-    }
-    
-    bool empty() const {
-        return arr.empty();
-    }
-    
-    int size() const {
-        return arr.size(); 
-    }
-};
-int main() {
-    MyPriorityQueue<int, greater<int>> pq; 
-    pq.push(43);
-    pq.push(14);
-    pq.push(7);
-    cout << pq.top() << endl;
-    std::cout << "Hello World!\n";
-}
-
-# Hashmap And Heap For Beginners > Write Hashmap **  
-
-hint: HM - ArrayList<LinkedList<>> | key --> HashFn --> bucket index
-
-avg case: O(lambada) | worse case: O(n) - that is all key, value pair were put in same buckets only when all of pair gets the same HC   
-- JAVA:
-public static class HashMap<K, V> {
-    private class HMNode {
-        K key;
-        V value;
-
-        HMNode(K newKey, V newValue) {
-            this.key = newKey;
-            this.value = newValue;
-        }
-    }
-
-    private int size = 0;
-    private LinkedList<HMNode>[] buckets; // buckets.length = N
-
-    public HashMap() {
-        initBuckets(4);
-        size = 0;
-    }
-
-    private void initBuckets(int N) {
-        buckets = new LinkedList<>[];
-        for(int bi = 0; bi < N; bi++) {
-            buckets[i] = new LinkedList<>();
-        }
-    }
-
-    public void put(K key, V value) throws Exception {
-        int bi = hashFn(key);
-        int di = getIdxWithinBucket(bi, key);
-        
-        if(di == -1) {
-            buckets[bi].add(new HMNode(key, value));    // case: insert
-            size++;
-        } else {
-            HMNode node = buckets[bi].get(di)           
-            node.value = value;                         // case: update
-        }
-
-        double lambda = size * 1.0 / buckets.length;    // size is multi. with 1.0 convert it into double
-        if(lambda > 2.0) {
-            rehash();
-        }
-    }
-
-    private void rehash() throws Exception {
-        LinkedList<HMNode>[] oldBkts = buckets;
-
-        initBuckets(oldBts.length * 2);
-        size = 0;
-
-        for(int bi = 0; bi < oldBkts.length; bi++) {
-            for(HMNode node: oldBkts[i]) {
-                put(node.key, node.value);
-            }
-        }
-    }
-
-    private int hashfn(K key) {
-        int hc = key.hashCode();
-        return Math.abs(hc) % buckets.length;
-    }
-
-    private int getIdxWithinBucket(int bi, K key) {
-        int di = 0;
-        for(HMNode node: buckets[bi]) {
-            if(node.key.equals(key)) {
-                return di;
-            }
-            di++;
-        }
-
-        return -1;
-    }
-
-    public V get(K key) {
-        int bi = hashFn(key);
-        int di = getIdxWithinBucket(bi, key);
-
-        if(di == -1) {
-            return null;
-        } else {
-            HMNode node = buckets[bi].get(di);
-            return node.value;
-        }
-    }
-
-    public boolean containsKey(K key) {
-        // ?
-    }
-
-    public V remove(K key) throws Exception{
-        int bi = hashfn(key);
-        int di = getIdxWithinBucket(int bi, K key);
-
-        if(di == -1) {
-            return null;
-        } else {
-            HMNode node = buckets[bi].remove(di);
-            size--;
-            return node;
-        }
-    }
-
-    public ArrayList<K> keySet() throws Exception {
-        ArrayList<K> keys = new ArrayList<>();
-
-        for(int bi = 0; bi < buckets.length; bi++) {
-            for(HMNode node: buckets[bi]) {
-                keys.add(node.key);
+            if(di == -1) {
+                return null;
+            } else {
+                HMNode node = buckets[bi].get(di);
+                return node.value;
             }
         }
 
-        return keys;
-    }
+        public boolean containsKey(K key) {
+            // ?
+        }
 
-    public int size() {
-        return size;
-    }
-}
-- CPP:
-#include<iostream>
-#include<cmath>
-using namespace std;
-template<class K, class V>
-class MyUnorderedMap {
-    private:
-    class Node {
-        public: 
-        K key;
-        V value;
-        
-        Node(K key, V value) : key(key), value(value) {};
-    };
-    
-    list<Node>* buckets;
-    int n;
-    int N;
-    int loadingFactor;
-    
-    void initbuckets(int capacity) {
-        buckets = new list<Node>[capacity];
-        N = capacity;
-    }
-    
-    int getBucketIndex(K key) {
-        int hashVal = abs(static_cast<int>(hash<K>{}(key)));
-        return hashVal % N;
-    }
-    
-    void rehash() {
-        if(n / N < loadingFactor) {
-            return;
+        public V remove(K key) throws Exception{
+            int bi = hashfn(key);
+            int di = getIdxWithinBucket(int bi, K key);
+
+            if(di == -1) {
+                return null;
+            } else {
+                HMNode node = buckets[bi].remove(di);
+                size--;
+                return node;
+            }
         }
-        // rehashing 
-        list<Node>* oldBuckets = buckets;
-        initbuckets(2 * N);
-        n = 0;
-        for(int i = 0; i < N / 2; i++) {
-            for(auto itr = oldBuckets[i].begin(); itr != oldBuckets[i].end(); ++itr) {
-                insert(itr->key, itr->value);
-            }   
+
+        public ArrayList<K> keySet() throws Exception {
+            ArrayList<K> keys = new ArrayList<>();
+
+            for(int bi = 0; bi < buckets.length; bi++) {
+                for(HMNode node: buckets[bi]) {
+                    keys.add(node.key);
+                }
+            }
+
+            return keys;
         }
-        delete[] oldBuckets;
+
+        public int size() {
+            return size;
+        }
     }
-    
-    public:
-    MyUnorderedMap() {
-        initbuckets(4);
-        n = 0;
-        loadingFactor = 2;
-    }
-    
-    void insert(K key, V value) {
-        int bi = getBucketIndex(key);
-        typename list<Node>::iterator itr = find(key);
-        if(itr != buckets[bi].end()) {
-            itr->value = value;
-        } else {
-            buckets[bi].push_back(Node(key, value));
-            n++;
-            rehash();
-        } 
-    } 
-    
-    typename list<Node>::iterator find(K key) {
-        int bi = getBucketIndex(key);
-        typename list<Node>::iterator itr;
-        for(itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
-            if(itr->key == key) {
+    - CPP:
+        #include<iostream>
+        #include<cmath>
+        using namespace std;
+        template<class K, class V>
+        class MyUnorderedMap {
+            private:
+            class Node {
+                public: 
+                K key;
+                V value;
+                
+                Node(K key, V value) : key(key), value(value) {};
+            };
+            
+            list<Node>* buckets;
+            int n;
+            int N;
+            int loadingFactor;
+            
+            void initbuckets(int capacity) {
+                buckets = new list<Node>[capacity];
+                N = capacity;
+            }
+            
+            int getBucketIndex(K key) {
+                int hashVal = abs(static_cast<int>(hash<K>{}(key)));
+                return hashVal % N;
+            }
+            
+            void rehash() {
+                if(n / N < loadingFactor) {
+                    return;
+                }
+                // rehashing 
+                list<Node>* oldBuckets = buckets;
+                initbuckets(2 * N);
+                n = 0;
+                for(int i = 0; i < N / 2; i++) {
+                    for(auto itr = oldBuckets[i].begin(); itr != oldBuckets[i].end(); ++itr) {
+                        insert(itr->key, itr->value);
+                    }   
+                }
+                delete[] oldBuckets;
+            }
+            
+            public:
+            MyUnorderedMap() {
+                initbuckets(4);
+                n = 0;
+                loadingFactor = 2;
+            }
+            
+            void insert(K key, V value) {
+                int bi = getBucketIndex(key);
+                typename list<Node>::iterator itr = find(key);
+                if(itr != buckets[bi].end()) {
+                    itr->value = value;
+                } else {
+                    buckets[bi].push_back(Node(key, value));
+                    n++;
+                    rehash();
+                } 
+            } 
+            
+            typename list<Node>::iterator find(K key) {
+                int bi = getBucketIndex(key);
+                typename list<Node>::iterator itr;
+                for(itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
+                    if(itr->key == key) {
+                        return itr;
+                    }
+                }
                 return itr;
             }
+            
+            bool containsKey(K key) {
+                int bi = getBucketIndex(key);
+                typename list<Node>::iterator itr = find(key);
+                if(itr != buckets[bi].end()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+            V remove(K key) {
+                int bi = getBucketIndex(key);
+                typename list<Node>::iterator itr = find(key);
+                if(itr != buckets[bi].end()) {
+                    V val = itr->value;
+                    buckets[bi].erase(itr);
+                    n--;
+                    return val;
+                } else {
+                    // return default value of type V
+                    return V();
+                }
+            }
+            
+            K* keyset() {
+                K* arr = new K[N];
+                int idx = 0;
+                for(int bi = 0; bi < N; bi++) {
+                    for(auto itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
+                        arr[idx++] = itr->key; 
+                    }
+                }
+                return arr;
+            }
+            
+            int size() {
+                return n;
+            }
+        };
+
+        int main() {
+            MyUnorderedMap<string, int>* umap = new MyUnorderedMap<string, int>();
+            umap->insert("navdeep", 101);
+            umap->insert("jaideep", 201);
+            umap->insert("amal", 401);
+            // cout << umap->containsKey("navdee") << endl;
+            cout << umap->remove("navdee") << endl;
+            string* arr = umap->keyset();
+            int n = umap->size();
+            for(int i = 0; i < n; i++) {
+                cout << arr[i] << " ";
+            }
+            
+            return 0;
         }
-        return itr;
-    }
-    
-    bool containsKey(K key) {
-        int bi = getBucketIndex(key);
-        typename list<Node>::iterator itr = find(key);
-        if(itr != buckets[bi].end()) {
-            return true;
-        } else {
-            return false;
+
+- Write Priority Queue Using Heap **
+    - Heap Properties: 
+        1. HOP? - Parent higher priority then child 
+        2. CBT?
+    - JAVA:
+    public static class PriorityQueue {
+        ArrayList<Integer> data;
+
+        public void add(int val) {
+            data.add(val);
+            upheapify(data.size() - 1);
         }
-    }
-    
-    V remove(K key) {
-        int bi = getBucketIndex(key);
-        typename list<Node>::iterator itr = find(key);
-        if(itr != buckets[bi].end()) {
-            V val = itr->value;
-            buckets[bi].erase(itr);
-            n--;
-            return val;
-        } else {
-            // return default value of type V
-            return V();
-        }
-    }
-    
-    K* keyset() {
-        K* arr = new K[N];
-        int idx = 0;
-        for(int bi = 0; bi < N; bi++) {
-            for(auto itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
-                arr[idx++] = itr->key; 
+
+        private void upheapify(int i) {
+            if(i == 0) return;
+
+            int pi = (i - 1) / 2;
+            if(data.get(i) < data.get(pi)) {
+                swap(i, pi)
+                upheapify(pi);
             }
         }
-        return arr;
+
+        private void swap(int i, int j) {
+            int tmp = data.get(i);
+            data.set(i, data.get(j));
+            data.set(j, tmp);
+        }
+
+        public int remove() {
+            if(data.size() == 0) {
+                System.out.println("Underflow");
+                return -1;
+            }
+
+            int rootVal = data.get(0);
+            swap(0, data.size() - 1);
+            downheapify(0);
+            return rootVal;
+        }
+
+        private void downheapify(int pi) {
+            int mi = pi;
+            int li = (2 * pi + 1);
+            int ri = (2 * pi + 2);
+
+            if(li < data.size() && data.get(li) < data.get(mi)) {
+                mi = li;
+            } else if(ri < data.size() && data.get(ri) < data.get(mi)) {
+                mi = ri;
+            }
+
+            if(mi != pi) {
+                swap(pi, mi);
+                downheapify(mi);
+            }
+        }
     }
-    
-    int size() {
-        return n;
-    }
-};
-int main() {
-    MyUnorderedMap<string, int>* umap = new MyUnorderedMap<string, int>();
-    umap->insert("navdeep", 101);
-    umap->insert("jaideep", 201);
-    umap->insert("amal", 401);
-    // cout << umap->containsKey("navdee") << endl;
-    cout << umap->remove("navdee") << endl;
-    string* arr = umap->keyset();
-    int n = umap->size();
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    
-    return 0;
-}
+    - CPP:
+        #include<functional>
+        using namespace std;
+        template<class T, typename Compare = less<T>>
+        class MyPriorityQueue {
+            vector<T> arr;
+            Compare comparator;
+            
+            void downheapify(int pi) {
+                int li = (2 * pi) + 1;
+                int ri = (2 * pi) + 2; 
+                int mini = pi;
+                
+                if(li < size() && comparator(arr[li], arr[mini])) {
+                    mini = li;    
+                }
+                if(ri < size() && comparator(arr[ri], arr[mini])) {
+                    mini = ri; 
+                }
+                
+                if(mini != pi) {
+                    swap(arr[mini], arr[pi]);
+                    downheapify(mini);
+                }
+            }
+            
+            void upheapify(int i) {
+                if(i == 0) {
+                    return; 
+                }
+                int pi = (i - 1) / 2;
+                if(comparator(arr[i], arr[pi])) {
+                    swap(arr[i], arr[pi]);
+                    upheapify(pi);
+                }
+            }
+            
+            public:
+            MyPriorityQueue() = default;
+            
+            template<typename... Args>
+            void push(Args&&... args) {
+                arr.push_back(T(forward<Args>(args)...));
+                upheapify(size() - 1);
+            }
+            
+            T pop() {
+                if(size() == 0) {
+                    throw out_of_range("Priority queue is empty"); 
+                }
+                int value = arr[0];
+                swap(arr[0], arr[size() - 1]);
+                arr.pop_back();
+                downheapify(0);
+                return value;
+            }
+            
+            T top() const {
+                if(size() == 0) {
+                    throw out_of_range("Priority queue is empty");
+                }
+                return arr[0];
+            }
+            
+            bool empty() const {
+                return arr.empty();
+            }
+            
+            int size() const {
+                return arr.size(); 
+            }
+        };
+        int main() {
+            MyPriorityQueue<int, greater<int>> pq; 
+            pq.push(43);
+            pq.push(14);
+            pq.push(7);
+            cout << pq.top() << endl;
+            std::cout << "Hello World!\n";
+        }
 
-# Hashmap And Heap For Beginners > K Largest Elements *  
-Note: time complexity O(nlog(k))?
+- Heap - Comparable Vs Comparator **
+    - JAVA:
+    public static class PriorityQueue<T> {
+        ArrayList<T> data;
 
-# Hashmap And Heap For Beginners > Sort K-sorted Array *
-O(nlog(k)) | space complexity: O(k)
+        public PriorityQueue() {
+            data = new ArrayList<>();
+        }
 
-# Hashmap And Heap For Beginners > Median Priority Queue **                     
-O(log(n)) space complexity O(1) | hint: 2 pq - 1. MAX pq 2. Min pq & get median from larger size of pq     
+        private boolean isSmaller(int i, int pi) {
+            return data.get(i) - data.get(pi);
+        }
 
-# Hashmap And Heap For Beginners > Merge K Sorted Lists
-O(nlog(k)), O(k)
+        public PriorityQueue(int[] arr) {
+            data = new ArrayList<>();
+            for(int val: arr) {
+                data.add(val);
+            }
 
-# Hashmap And Heap For Beginners > Efficient Heap Construction **
-hint: downheapify()
-upheapify - O(nlog(n)) | downheapify - O(n) 
-- JAVA:
-public static class PriorityQueue {
-    ArrayList<Integer> data;
+            for(int i = data.size() / 2 - 1; i >= 0; i--) {
+                downheapify(i);
+            }
+        }
 
-    public PriorityQueue() {
-        data = new ArrayList<>();
-    }
+        private void downheapify(int i) {
+            int mini = i;
 
-    public PriorityQueue(int[] arr) {
-        data = new ArrayList<>();
-        for(int val: arr) {
+            int li = 2 * i + 1;
+            if(li < data.size() && isSmaller(i, pi)) {
+                mini = li;
+            } 
+
+            int ri = 2 * i + 2;
+            if(ri < data.size() && data.get(ri) < data.get(mini)) {
+                mini = ri;
+            }
+
+            if(mini != i) {
+                swap(i, mini);
+                downheapify(mini);
+            }
+        }
+
+        public void add(int val) {
             data.add(val);
+            upheapify(data.size() - 1);
         }
 
-        for(int i = data.size() / 2 - 1; i >= 0; i--) {
-            downheapify(i);                                                         // O(n)
-        }
-    }
+        private void upheapify(int i) {
+            if(i == 0) {
+                return;
+            }
 
-    public void add(int val) {
-        data.add(val);
-        upheapify(data.size() - 1);                                                 // O(nlog(n)) - last row of element does large work
-    }
-}
-- CPP:
-#include<functional>
-using namespace std;
-template<typename T, typename Compare = less<T>>
-class MyPriorityQueue {
-    vector<T> arr;
-    Compare comparator;
-    
-    void upheapify(int ci) {
-        if(ci == 0) {
-            return;
-        }
-        int pi = (ci - 1) / 2;
-        if(comparator(arr[ci], arr[pi])) {
-            swap(arr[ci], arr[pi]);
-            upheapify(pi);
+            int pi = (i - 1) / 2;
+            if(isSmaller(i, pi)) {
+                swap(i, pi);
+                upheapify();
+            }
+
+            // internally above comparsion works as
+            // Comparable prt = (Comparable) data.get(pi);
+            // Comparable child = (Comparable) data.get(i);
+            // if(child.compareTo(prt) < 0) {  // true means that this(child) is smaller                  
+            //    swap(i, pi);
+            //    upheapify(pi);
+            // }
         }
     }
-    
-    void downheapify(int pi) {
-        int li = (2 * pi) + 1;
-        int ri = (2 * pi) + 2;
-        int mini = pi;
+    - CPP:
+    #include<functional>
+    using namespace std;
+    class Node {
+        public:
+        int position;
+        int value;
         
-        if(li < size() && comparator(arr[li], arr[mini])) {
-            mini = li;
-        }
-        if(ri < size() && comparator(arr[ri], arr[mini])) {
-            mini = ri;
+        Node(int position, int value) : position(position), value(value) {};
+        
+        // COMPARABLE
+        bool operator>(const Node& other) const {
+            return value > other.value;
         }
         
-        if(mini != pi) {
-            swap(arr[mini], arr[pi]);
-            downheapify(mini);
+        bool operator<(const Node& other) const {
+            return value < other.value;
         }
-    }
-    
-    public:
-    MyPriorityQueue() = default;
-    
-    MyPriorityQueue(vector<T> vec) {
-        // inefficent heap construction from array of values
-        /*
-        for(int i = 0; i < vec.size(); i++) {
-            push(vec[i]); 
-        }
-        */
+    };
+    template<typename T, typename Compare = less<T>>
+    class MyPriorityQueue {
+        vector<T> arr;
+        Compare comparator;
         
-        // efficient heap construction
-        for(int i = 0; i < vec.size(); i++) {
-            arr.push_back(vec[i]); 
+        void upheapify(int ci) {
+            if(ci == 0) {
+                return;
+            }
+            int pi = (ci - 1) / 2;
+            if(comparator(arr[ci], arr[pi])) {
+                swap(arr[ci], arr[pi]);
+                upheapify(pi);
+            }
         }
-        for(int i = vec.size() / 2 - 1; i >= 0; i--) {
-            downheapify(i);
+        
+        void downheapify(int pi) {
+            int li = (2 * pi) + 1;
+            int ri = (2 * pi) + 2;
+            int mini = pi;
+            
+            if(li < size() && comparator(arr[li], arr[mini])) {
+                mini = li;
+            }
+            if(ri < size() && comparator(arr[ri], arr[mini])) {
+                mini = ri;
+            }
+            
+            if(mini != pi) {
+                swap(arr[mini], arr[pi]);
+                downheapify(mini);
+            }
         }
-    }
-    
-    template<typename... Args>
-    void push(Args... args) {
-        arr.push_back(T(forward<Args>(args)...));
-        upheapify(size() - 1);
-    }
-    
-    T pop() {
-        if(size() == 0) {
-            throw out_of_range("Priority queue is empty");
+        
+        public:
+        MyPriorityQueue() = default;
+        
+        MyPriorityQueue(vector<T> vec) {
+            // inefficent heap construction from array of values
+            /*
+            for(int i = 0; i < vec.size(); i++) {
+                push(vec[i]); 
+            }
+            */
+            
+            // efficient heap construction
+            for(int i = 0; i < vec.size(); i++) {
+                arr.push_back(vec[i]); 
+            }
+            for(int i = vec.size() / 2 - 1; i >= 0; i--) {
+                downheapify(i);
+            }
         }
-        int value = arr[0];
-        swap(arr[0], arr[size() - 1]);
-        arr.pop_back();
-        downheapify(0);
-        return value;
-    }
-    
-    T top() const {
-        if(size() == 0) {
-            throw out_of_range("Priority queue empty");
+        
+        template<typename... Args>
+        void push(Args... args) {
+            arr.push_back(T(forward<Args>(args)...));
+            upheapify(size() - 1);
         }
-        return arr[0];
+        
+        T pop() {
+            if(size() == 0) {
+                throw out_of_range("Priority queue is empty");
+            }
+            int value = arr[0];
+            swap(arr[0], arr[size() - 1]);
+            arr.pop_back();
+            downheapify(0);
+            return value;
+        }
+        
+        T top() const {
+            if(size() == 0) {
+                throw out_of_range("Priority queue empty");
+            }
+            return arr[0];
+        }
+        
+        bool empty() const {
+            return arr.empty();
+        }
+        
+        size_t size() const {
+            return arr.size();
+        }
+    };
+    // COMPARATOR
+    struct StringLengthComparator {  
+        bool operator() (const string& str1, const string& str2) {
+            return str1.size() > str2.size();
+        }
+    };
+    /*
+    struct NodeComparator {
+        bool operator() (Node node1, Node node2) const {
+            return node1.position < node2.position;
+        }
+    };
+    */
+    int main() {
+        //vector<string> arr{"map", "list", "tree", "link", "heap", "array"};
+        //MyPriorityQueue<string, StringLengthComparator>* pq = new MyPriorityQueue<string, StringLengthComparator>(arr);
+        //cout << pq->top() << endl;
+        
+        vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
+        MyPriorityQueue<Node, greater<Node>>* pq = new MyPriorityQueue<Node, greater<Node>>(arr);
+        cout << pq->top().value << endl;
+        return 0;
     }
-    
-    bool empty() const {
-        return arr.empty();
+    - How to use Comparable, Comparator with c++ stl priority_queue:
+    using namespace std;
+    class Node {
+        public:
+        int position;
+        int value;
+        
+        Node(int position, int value) : position(position), value(value) {}; 
+        
+        // comparable
+        bool operator>(const Node& otherNode)  const {
+            return otherNode.position > this->position;
+        }
+        
+        bool operator<(const Node& otherNode) const {
+            return  otherNode.position < this->position;
+        }
+    };
+    // comparator
+    struct NodeComparator {
+        bool operator()(const Node& node1, const Node& node2) const {
+            return node2.position > node1.position;
+        }
+    };
+    int main() {
+        vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
+        priority_queue<Node, vector<Node>, greater<Node>>* pq = new priority_queue<Node, vector<Node>, greater<Node>>(arr.begin(), arr.end());
+        //priority_queue<Node, vector<Node>, NodeComparator>* pq = new priority_queue<Node, vector<Node>, NodeComparator>(arr.begin(), arr.end());
+        cout << pq->top().value << endl;
+        return 0;
     }
-    
-    size_t size() const {
-        return arr.size();
-    }
-};
-int main() {
-    vector<int> arr{4, 7, 12, 41, 9};
-    MyPriorityQueue<int, greater<int>>* pq = new MyPriorityQueue<int, greater<int>>(arr);
-    cout << pq->top() << endl;
-    return 0;
-}
 
+- K Largest Elements *  
+    - TIME COMPLEXITY:
+        O(nlog(k))?
+    - NOTE:
+        priority_queue<int, vector<int>, greater<int>> pq;  // greater<int> - min heap
 
-# Hashmap And Heap For Beginners > Heap - Comparable Vs Comparator **
-- JAVA:
-public static class PriorityQueue<T> {
-    ArrayList<T> data;
+- Sort K-sorted Array *
+    - TIME COMPLEXITY:
+        O(nlog(k)) 
+    - SPACE COMPLEXITY: 
+        O(k)
 
-    public PriorityQueue() {
-        data = new ArrayList<>();
-    }
+- Median Priority Queue ** 
+    - HINT: 
+        2 pq - 1. MAX pq 2. Min pq & get median from larger size of pq                        
+    - TIME COMPLEXITY:
+        O(log(n)) 
+    - SPACE COMPLEXITY
+        O(1) 
 
-    private boolean isSmaller(int i, int pi) {
-        return data.get(i) - data.get(pi);
-    }
+- Merge K Sorted Lists
+    - TIME COMPLEXITY:
+        O(nlog(k))
+    - SPACE COMPLEXITY:
+        O(k)
 
-    public PriorityQueue(int[] arr) {
-        data = new ArrayList<>();
-        for(int val: arr) {
+- Efficient Heap Construction **
+    - HINT: 
+        downheapify()  WHY? upheapify - O(nlog(n)) | downheapify - O(n) 
+    - JAVA:
+    public static class PriorityQueue {
+        ArrayList<Integer> data;
+
+        public PriorityQueue() {
+            data = new ArrayList<>();
+        }
+
+        public PriorityQueue(int[] arr) {
+            data = new ArrayList<>();
+            for(int val: arr) {
+                data.add(val);
+            }
+
+            for(int i = data.size() / 2 - 1; i >= 0; i--) {
+                downheapify(i);                                                         // O(n)
+            }
+        }
+
+        public void add(int val) {
             data.add(val);
-        }
-
-        for(int i = data.size() / 2 - 1; i >= 0; i--) {
-            downheapify(i);
+            upheapify(data.size() - 1);                                                 // O(nlog(n)) - last row of element does large work
         }
     }
-
-    private void downheapify(int i) {
-        int mini = i;
-
-        int li = 2 * i + 1;
-        if(li < data.size() && isSmaller(i, pi)) {
-            mini = li;
-        } 
-
-        int ri = 2 * i + 2;
-        if(ri < data.size() && data.get(ri) < data.get(mini)) {
-            mini = ri;
-        }
-
-        if(mini != i) {
-            swap(i, mini);
-            downheapify(mini);
-        }
-    }
-
-    public void add(int val) {
-        data.add(val);
-        upheapify(data.size() - 1);
-    }
-
-    private void upheapify(int i) {
-        if(i == 0) {
-            return;
-        }
-
-        int pi = (i - 1) / 2;
-        if(isSmaller(i, pi)) {
-            swap(i, pi);
-            upheapify();
-        }
-
-        // internally above comparsion works as
-        // Comparable prt = (Comparable) data.get(pi);
-        // Comparable child = (Comparable) data.get(i);
-        // if(child.compareTo(prt) < 0) {  // true means that this(child) is smaller                  
-        //    swap(i, pi);
-        //    upheapify(pi);
-        // }
-    }
-}
-- CPP:
-#include<functional>
-using namespace std;
-class Node {
-    public:
-    int position;
-    int value;
-    
-    Node(int position, int value) : position(position), value(value) {};
-    
-    // COMPARABLE
-    bool operator>(const Node& other) const {
-        return value > other.value;
-    }
-    
-    bool operator<(const Node& other) const {
-        return value < other.value;
-    }
-};
-template<typename T, typename Compare = less<T>>
-class MyPriorityQueue {
-    vector<T> arr;
-    Compare comparator;
-    
-    void upheapify(int ci) {
-        if(ci == 0) {
-            return;
-        }
-        int pi = (ci - 1) / 2;
-        if(comparator(arr[ci], arr[pi])) {
-            swap(arr[ci], arr[pi]);
-            upheapify(pi);
-        }
-    }
-    
-    void downheapify(int pi) {
-        int li = (2 * pi) + 1;
-        int ri = (2 * pi) + 2;
-        int mini = pi;
+    - CPP:
+    #include<functional>
+    using namespace std;
+    template<typename T, typename Compare = less<T>>
+    class MyPriorityQueue {
+        vector<T> arr;
+        Compare comparator;
         
-        if(li < size() && comparator(arr[li], arr[mini])) {
-            mini = li;
-        }
-        if(ri < size() && comparator(arr[ri], arr[mini])) {
-            mini = ri;
+        void upheapify(int ci) {
+            if(ci == 0) {
+                return;
+            }
+            int pi = (ci - 1) / 2;
+            if(comparator(arr[ci], arr[pi])) {
+                swap(arr[ci], arr[pi]);
+                upheapify(pi);
+            }
         }
         
-        if(mini != pi) {
-            swap(arr[mini], arr[pi]);
-            downheapify(mini);
+        void downheapify(int pi) {
+            int li = (2 * pi) + 1;
+            int ri = (2 * pi) + 2;
+            int mini = pi;
+            
+            if(li < size() && comparator(arr[li], arr[mini])) {
+                mini = li;
+            }
+            if(ri < size() && comparator(arr[ri], arr[mini])) {
+                mini = ri;
+            }
+            
+            if(mini != pi) {
+                swap(arr[mini], arr[pi]);
+                downheapify(mini);
+            }
         }
-    }
-    
-    public:
-    MyPriorityQueue() = default;
-    
-    MyPriorityQueue(vector<T> vec) {
-        // inefficent heap construction from array of values
-        /*
-        for(int i = 0; i < vec.size(); i++) {
-            push(vec[i]); 
-        }
-        */
         
-        // efficient heap construction
-        for(int i = 0; i < vec.size(); i++) {
-            arr.push_back(vec[i]); 
+        public:
+        MyPriorityQueue() = default;
+        
+        MyPriorityQueue(vector<T> vec) {
+            // inefficent heap construction from array of values
+            /*
+            for(int i = 0; i < vec.size(); i++) {
+                push(vec[i]); 
+            }
+            */
+            
+            // efficient heap construction
+            for(int i = 0; i < vec.size(); i++) {
+                arr.push_back(vec[i]); 
+            }
+            for(int i = vec.size() / 2 - 1; i >= 0; i--) {
+                downheapify(i);
+            }
         }
-        for(int i = vec.size() / 2 - 1; i >= 0; i--) {
-            downheapify(i);
+        
+        template<typename... Args>
+        void push(Args... args) {
+            arr.push_back(T(forward<Args>(args)...));
+            upheapify(size() - 1);
         }
-    }
-    
-    template<typename... Args>
-    void push(Args... args) {
-        arr.push_back(T(forward<Args>(args)...));
-        upheapify(size() - 1);
-    }
-    
-    T pop() {
-        if(size() == 0) {
-            throw out_of_range("Priority queue is empty");
+        
+        T pop() {
+            if(size() == 0) {
+                throw out_of_range("Priority queue is empty");
+            }
+            int value = arr[0];
+            swap(arr[0], arr[size() - 1]);
+            arr.pop_back();
+            downheapify(0);
+            return value;
         }
-        int value = arr[0];
-        swap(arr[0], arr[size() - 1]);
-        arr.pop_back();
-        downheapify(0);
-        return value;
-    }
-    
-    T top() const {
-        if(size() == 0) {
-            throw out_of_range("Priority queue empty");
+        
+        T top() const {
+            if(size() == 0) {
+                throw out_of_range("Priority queue empty");
+            }
+            return arr[0];
         }
-        return arr[0];
+        
+        bool empty() const {
+            return arr.empty();
+        }
+        
+        size_t size() const {
+            return arr.size();
+        }
+    };
+    int main() {
+        vector<int> arr{4, 7, 12, 41, 9};
+        MyPriorityQueue<int, greater<int>>* pq = new MyPriorityQueue<int, greater<int>>(arr);
+        cout << pq->top() << endl;
+        return 0;
     }
-    
-    bool empty() const {
-        return arr.empty();
-    }
-    
-    size_t size() const {
-        return arr.size();
-    }
-};
-// COMPARATOR
-struct StringLengthComparator {  
-    bool operator() (const string& str1, const string& str2) {
-        return str1.size() > str2.size();
-    }
-};
-/*
-struct NodeComparator {
-    bool operator() (Node node1, Node node2) const {
-        return node1.position < node2.position;
-    }
-};
-*/
-int main() {
-    //vector<string> arr{"map", "list", "tree", "link", "heap", "array"};
-    //MyPriorityQueue<string, StringLengthComparator>* pq = new MyPriorityQueue<string, StringLengthComparator>(arr);
-    //cout << pq->top() << endl;
-    
-    vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
-    MyPriorityQueue<Node, greater<Node>>* pq = new MyPriorityQueue<Node, greater<Node>>(arr);
-    cout << pq->top().value << endl;
-    return 0;
-}
-- How to use Comparable, Comparator with c++ stl priority_queue:
-using namespace std;
-class Node {
-    public:
-    int position;
-    int value;
-    
-    Node(int position, int value) : position(position), value(value) {}; 
-    
-    // comparable
-    bool operator>(const Node& otherNode)  const {
-        return otherNode.position > this->position;
-    }
-    
-    bool operator<(const Node& otherNode) const {
-        return  otherNode.position < this->position;
-    }
-};
-// comparator
-struct NodeComparator {
-    bool operator()(const Node& node1, const Node& node2) const {
-        return node2.position > node1.position;
-    }
-};
-int main() {
-    vector<Node> arr{Node(0, 3), Node(1, 8), Node(2, 5), Node(3, 17), Node(4, 2), Node(5, 11)};
-    priority_queue<Node, vector<Node>, greater<Node>>* pq = new priority_queue<Node, vector<Node>, greater<Node>>(arr.begin(), arr.end());
-    //priority_queue<Node, vector<Node>, NodeComparator>* pq = new priority_queue<Node, vector<Node>, NodeComparator>(arr.begin(), arr.end());
-    cout << pq->top().value << endl;
-    return 0;
-}
+
+
 
 # Graphs for Beginners > Get Connected Components Of A Graph
        
@@ -1623,260 +1653,7 @@ end 1   0       1       2       3
 
     hint: 2 half at a pt.
 
-    arr:  11    6    7    19    4    1    6    18    4
-           0    0    1    13   13   13   13    17   17
-          17   17   17    17   17   17   12     0    0  
-          17   17   18    30   30   30   25    17   17
-
-    -----------------------------------------------------------------------------------------------------------
-
-
-# Other Questions: 
-
-# Max negative value in cpp
-
-   #include<limits>
-
-   numeric_limits<int> limits;
-   limits.min();
-
-# Max in an array 
-
-   #include<algorithm>
-
-   int *max = std::max_element(A, A + N); // max_element takes start index & end index of array, return reference to max element
-   int maxValue = *max; // de-reference
-
-# Sum in an array
-
-   #include<numeric>
-
-   int sum = accumulate(A, A + N, 0);
-
-# Find duplicates in an array
-    [2, 3, 1, 2, 3]
-     0  1  2  3  4
-     
-    int count[N] = {0};
-    c++ to initialize every value in an array to 0, we can use above way.
-    Please note that it will NOT WORK for any other value except 0.
-
-    2 - 1 0 
-    3 - 1 1 => 2 xor 3 = 0 1 = 1
-    1 - 0 1 => 1 xor 1 = 0 0 = 0
-    2 - 1 0 => 0 xor 2 = 1 0 = 2
-    3 - 1 1 => 2 xor 3 = 0 1 = 2 
-
-# Sorting Algorithm
-   Selection Sort:
-   Bubble Sort:
-
-# Subarray with given sum
-
-   array is unsorted but array values are positive
-
-   [1, 2, 3, 7, 5]
-    0  1  2  3  4
-
-    1  3  6 13 18
-    i  
-                j
-
-    x = 12
-    a[0] - a[j] = 13
-
-   hint: two pointer
-
-# Union of two sorted array
-
-   hint: two pointer
-
-# Container with most water
-
-   hint: two pointer
-
-# 2D Array
-   
-   Concept: Row Major 
-   
-# Rotate Image
-   
-# Search in 2D Matrix
-
-# Search in 2D Matrix II
-
- Hint: Like two pointer we need to see how we can make decision for moving so that value would increase at one side & decrease at other side.
-
-# Search a 2D Matrix
-
-# Binary String
-
-    Hint: count number of ones in the string 
-          nC2 => possible combination of 2 ones out of n
-
-# Anagram of string
-
-# Min Number of Flips
-
-# Sum of two larger number
-
-# Length of the longest substring without repeating characters
-
-# Longest Common Prefix in an Array
-
-# Sum of two large numbers
-
-# Longest Prefix Suffix ***
-                                                   _            
-        B  A  A  B  A  B  C  C  A  C   B   A   B   A  C
-        0  1  2  3  4  5  6  7  8  9  10  11  12  13
-                                                      i 
-    
-        _
-        A B A B C A
-        0 1 2 3 4 5
-
-  LPS:  0 0 1 2 0 1
-          j  
-
-
-        A B A B C A
-        0 1 2 3 4 5
-
-  LPS:  0 0 1 2 0 1
-          p         i
-
-
-        a  b  c  d  a  b  c  h  e  a   b   c   d   a   b
-        0  1  2  3  4  5  6  7  8  9  10  11  12  13  14
-    
-  lps:  0  0  0  0  1  2  3  0  0  1   2   3   4   5   3
-                          p
-                                                          i
-
-  int lps[4] = {0};
-  lps[0] = 0;
-  int p = 0, i = 1;
-
-  while(i < 4) {
-    if(s[p] == s[i]) {
-      lps[i] = p + 1;
-      p++; 
-      i++;
-    } else {
-      if(p == 0) {
-        lps[i] = 0;
-        i++
-      } else {
-        p--;
-      }
-    }
-  }
-
-# Find the Index of the First Occurrence in a String ***
-
-        a  b  c  d  a  b  c  e  h  a   b   c   d   a   b
-        0  1  2  3  4  5  6  7  8  9  10  11  12  13  14
-
-  lps:  0  0  0  0  1  2  3  0  0  1   2   3   0   0   0
-                 p
-                                           i
-
-# Check if string is rotated by two places
-
-                         a m a z o n
-
-  reverse rotated by 2 : a z o n a m
-  
-                         a  m  a  z  o  n  $  a  z  o   n   a   m
-                         o  1  2  3  4  5  6  7  8  9  10  11  12
-                  
-                  lps:   0  0  1  0  0  0  0  1  0  0   0   1   2
-                               p                               
-                                                                   i 
-
-  
-     rotated by 2      : o n a m a z
-
-                         a  m  a  z  o  n  $  o  n  a   m   a   z
-                         o  1  2  3  4  5  6  7  8  9  10  11  12
-                  
-                  lps:   0  0  1  0  0  0  0  0  0  1   2   3   4
-                                     p
-                                                                   i 
-
-                   rotate = n - lps = 6 - 4 = 2 
-                         
-
-                         g  e  e  k  s  f  o  r  g  e   e   k   s   $   g   e   e   k   s   g   e   e   k   s   f   o   r 
-                         0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26 
-
-                  lps:   0  0  0  0  0  0  0  0  1  2   3   4   5   0   1   2   3   4   5   1   2   3   4   5   6   7   8
-                                                 p
-                                                                                                                           i
-
-                          r r r $ r r r 
-                          0 1 2 3 4 5 6
-
-                    lps:  0 1 2 0 1 2 3
-                                p 
-                                        i 
-
-                          a c t y r c t $ r c  t  t  y  a  c
-                          0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
-
-                    lps:  0 0 0 0 0 0 0 0 0 0  0  0  0  1  2
-                              p
-                                                             i
-                          
-        
-# Minimum characters to be added at front to make string palindrome
-
-    a b c
-    i 
-    j
-
-    c b
-
-
-    t i c t k g
-    i 
-      j
-
-    g k t c i
-
-
-    a a c e c a a a
-        i
-              j
-
-    e f r e i t f e
-        i
-              j
-
-    e f t 
-
-        a a c e c a a a 
-        0 1 2 3 4 5 6 7
-  
-  lps:  0 1 0 0 0 1 2 2
-            p
-                        i
-
-# Longest Common Substring 
-
-# Count Inversions
-
-  Hint: merge sort
-
-# House Robber II
-
-# Combination Sum
-
-# Count ways to express a number as sum of powers *
-
-# Permutations of given String
-
-# Letter Combination of a Phone Number
-
-# Find all possible palindromic partitions of a String
+    arr:  11    6    7    19    4    1    6    18   4
+           0    0    1    13   13   13   13    17  17
+          17   17   17    17   17   17   12     0   0  
+          17   17   18    30   30   30   25    17  17

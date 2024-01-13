@@ -2,7 +2,7 @@
  1 byte       = 8 bits 
  1 kb         = 2^10 bytes 
 
-# STL(STANDARD TEMPLATE LIBRARY)
+# PREREQUISITES
 
 - INT MAX 
   int value = INT_MAX
@@ -37,6 +37,19 @@
         ---  
 
     Memory is allocated to every byte i.e. if we have int array of size 5 assuming first byte is allocated a address of 500 then next would be 504, next would be 508 and so on.
+
+- IGNORE CHAR
+  string str = "navdeep \"here\"";  // c++ ignores char after \
+  cout << str => navdeep "here"
+
+  str = "navdeep \\here\\";  
+  cout << str => navdeep \here\
+
+- CHAR NULL CHECK
+  char ch;
+  if(ch == '\0') {}
+
+# STL(STANDARD TEMPLATE LIBRARY)
 
 - VECTOR SIZE
   VECTOR - a.size() => gives no of elements in vector
@@ -117,17 +130,6 @@
 - REVERSE A STRING
   string str = "navd";
   reverse(str.begin(), str.end()); => "dvan"
-
-- IGNORE CHAR
-  string str = "navdeep \"here\"";  // c++ ignores char after \
-  cout << str => navdeep "here"
-
-  str = "navdeep \\here\\";  
-  cout << str => navdeep \here\
-
-- CHAR NULL CHECK
-  char ch;
-  if(ch == '\0') {}
 
 - POINTER:
   Byte addressable => 1 byte is assigned an address
@@ -356,6 +358,12 @@
     Node* first = new Node;
     first->data = 19;
     return 0;
+  }
+
+- UNORDERED SET
+  unordered_set<int> s;
+  for(typename unordered_set<int>::iterator itr = s.begin(); itr != s.end(); itr++) {
+    cout << *itr << " ";
   }
 
 # Oops:
