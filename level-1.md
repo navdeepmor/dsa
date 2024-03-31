@@ -1483,27 +1483,45 @@ public class Main {
       . 1 __ 2    5 __ 6
              .    .    . 
 
-# Dynamic Programming And Greedy For Beginners > Target Sum Subsets - Dp
+# Dynamic Programming And Greedy For Beginners
+
+- Climbing Stairs (using tabulation) **
+
+- Climbing Stairs with Jumps **
+
+- Climbing Stairs with minimum moves **
+
+- Mininum Cost Path **
+
+- Goldmine **
+
+- Target Sum Subsets ***
 
     hint: cricket match
 
         0   1   2   3   4   5   6   7   8   9   10
-    0   1   0   0   0   0   0   0   0   0   0   0    
     4   1   0   0   0   1   0   0   0   0   0   0 
     3   1   0   0   1   1   0   0   1   0   0   0
     7   1   0   0   1   1   0   0   1   0   0   1
     1   1   
     5   1
-    
-                                                /       \
-                                               4         -                                                  4
-                                            /     \   /     \
-                                           7       4 3       -                                              3
-                                        /     \  /
-                                                                                                            7
 
+- Coin Change Combination ***
 
-# Dynamic Programming And Greedy For Beginners > Coin Change Permutations
+    coins: [2, 3, 5]
+                  .
+
+        0       1       2       3       4       5       6       7
+      -------------------------------------------------------------
+        _             _ 2           _ 2 2         _ 2 2 2  
+                          
+                              _ 3           _ 3 2   _ 3 3  _ 3 2 2    
+
+                                              _ 5            _ 5 2
+
+    link - https://leetcode.com/problems/coin-change-ii/description/
+
+- Coin Change Permutations ***
 
     k = 7
 
@@ -1523,23 +1541,49 @@ public class Main {
 
                                        _ 5    _ 6
 
+- 0-1 Knapsack ***
+
+    W = 7
+    val: [15, 14, 10, 45, 30]
+    wt:  [ 2,  5,  1,  3,  4]
+
+          0  1  2  3  4  5  6  7
+    2-15  0  0 15 15 15 15 15 15
+    5-14  0  0 15 15 15 15 15 29 
+    1-10  0 10 15 25 25 25 25 29 
+    3-45  0 10 15 45 55 60 70 70
+    4-30  0 10 15 45 55 60 70 75
+
+- Unbounded Knapsack ***
+
+    W = 7
+    val: [15, 14, 10, 45, 30]
+    wt:  [ 2,  5,  1,  3,  4]
 
 
-# Dynamic Programming And Greedy For Beginners > Count Binary Strings
+           0      1      2      3      4      5      6      7
+        -------------------------------------------------------
+           0   1-10   1-10   3-45   1-10   1-10   3-45   3-45   
+                      1-10          3-45   1-10   3-45   1-10
+                                           3-45          3-45
+                                                  
 
-        0       1       2       3       4       5       6
-        _________________________________________________
-end 0   0       1       1       2
-                [0]     [10]    [010]
-                                [110]
+
+- Count Binary Strings
+
+          0       1       2       3       4       5       6
+          _________________________________________________
+  end 0   0       1       1       2
+                  [0]     [10]    [010]
+                                  [110]
           
-end 1   0       1       2       3
-                [1]     [01]    [101]
-                        [11]    [011]
-                                [111]
+  end 1   0       1       2       3
+                  [1]     [01]    [101]
+                          [11]    [011]
+                                  [111]
 
 
-# Dynamic Programming And Greedy For Beginners > Count Encodings
+- Count Encodings
 
         2       3       1       0       1       1
         _________________________________________
@@ -1553,7 +1597,7 @@ end 1   0       1       2       3
 
 
 
-# Dynamic Programming And Greedy For Beginners > Maximum Sum Non Adjacent Elements
+- Maximum Sum Non Adjacent Elements
 
                                       a = 1 + 2a+  
                                       b = a + 2a+b+
@@ -1578,13 +1622,13 @@ end 1   0       1       2       3
     a+b+c+  0       0       1           1         1  
                             [abc]       [abc]     [abc]  
 
-# Dynamic Programming And Greedy For Beginners > Maximum Sum Non Adjacent Elements
+- Maximum Sum Non Adjacent Elements
 
         5    10    10    100    5     6
     i   5    10    15    110    20    116 
     e   0    5     10    15     110   110 
 
-# Dynamic Programming And Greedy For Beginners > Friends Pairing
+- Friends Pairing
 
     n = 4
 
@@ -1603,7 +1647,7 @@ end 1   0       1       2       3
                                                     1-3[2]
 
 
-# Dynamic Programming And Greedy For Beginners > Partition Into Subsets
+- Partition Into Subsets
 
                                                 4|3
                                         14-2-3   13-4   12-3-4
@@ -1623,7 +1667,34 @@ end 1   0       1       2       3
     2   0    0       1       3       7
     3   0
 
-# Dynamic Programming And Greedy For Beginners > Buy And Sell Stocks - K Transactions Allowed
+- Buy And Sell Stocks - with Cool down
+
+    [10, 15, 17, 20, 16, 18, 22, 20, 22, 20, 23, 25]
+
+              bsp     ssp     csp
+     1 10    -10      0       0
+     2 15    -10      5       0
+     3 17    -10      7       5
+     4 20    -10     10       7
+     5 16    -9      10      10
+     6 18      
+     7 22
+     8 20
+     9 22
+    10 20
+    11 23 
+    12 25
+
+- Buy And Sell Stocks - Two Transactions Allowed
+
+    hint: 2 half at a pt.
+
+    arr:  11    6    7    19    4    1    6    18   4
+           0    0    1    13   13   13   13    17  17
+          17   17   17    17   17   17   12     0   0  
+          17   17   18    30   30   30   25    17  17
+
+- Buy And Sell Stocks - K Transactions Allowed
 
     hint: k trans - table
 
@@ -1646,14 +1717,3 @@ end 1   0       1       2       3
                                  v12 + p6 - p3
                                  v11 + p6 - p2
                                  v10 + p6 - p1
-                                  
-
-
-# Dynamic Programming And Greedy For Beginners > Buy And Sell Stocks - Two Transactions Allowed
-
-    hint: 2 half at a pt.
-
-    arr:  11    6    7    19    4    1    6    18   4
-           0    0    1    13   13   13   13    17  17
-          17   17   17    17   17   17   12     0   0  
-          17   17   18    30   30   30   25    17  17
