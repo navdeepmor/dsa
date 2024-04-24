@@ -450,7 +450,41 @@
     ____      ____ 
     mSt       hSt
 
-# Generic Tree For Beginners > Generic Tree Constructor
+# Generic Tree For Beginners 
+
+- Generic Tree Constructor
+
+                   . 10
+               /      |     \
+          . 20        30      40     
+          /    \   /  |   \     \
+        50    60  70  80  90    100
+                     /  \
+                  110   120
+
+        temp = 100  
+
+    1 3 (4) 6 7
+
+    (n)
+
+    n(1)     
+      i
+          j
+            k
+
+                  l
+    arr : 6 4 2 7 8
+                  i
+                  j
+
+    int i = 0, j = 0; 
+    last=arr[n-1]
+    while( j < n-2):
+        if arr[j]<last:
+            arr[j],arr[i]=arr[i],arr[j]
+            i+=1
+        j+=1        
 
 # Binary Tree For Beginners > Binary Tree - Constructor
 
