@@ -370,3 +370,163 @@
   for(typename unordered_set<int>::iterator itr = s.begin(); itr != s.end(); itr++) {
     cout << *itr << " ";
   }
+
+# Linkedlist in c++
+
+    template <class K, class V>
+    class Node {
+        public:
+        K key;
+        V value;
+        
+        Node(K key, V value) : key(key), value(value) {}
+    };
+
+    int main() {
+        list<Node<string, int>> lt;  // doubly linked list in stack
+        lt.push_back(Node<string, int>("navdeep ", 2100));
+        
+        list<Node<string, int>> :: iterator it;
+        for(it = lt.begin(); it != lt.end(); it++) {
+            if(it->key == "navd") {
+                cout << "I GOT THE VALUE!!";
+            }
+        }
+        
+        return 0;
+    }
+
+  # UnorderedMap
+  
+    #include<iostream>
+    #include<cmath>
+
+    using namespace std;
+
+    template<class K, class V>
+    class MyUnorderedMap {
+        private:
+        class Node {
+            public: 
+            K key;
+            V value;
+            
+            Node(K key, V value) : key(key), value(value) {};
+        };
+        
+        list<Node>* buckets;
+        int n;
+        int N;
+        int loadingFactor;
+        
+        void initbuckets(int capacity) {
+            buckets = new list<Node>[capacity];
+            N = capacity;
+        }
+        
+        int getBucketIndex(K key) {
+            int hashVal = abs(static_cast<int>(hash<K>{}(key)));
+            return hashVal % N;
+        }
+        
+        void rehash() {
+            if(n / N < loadingFactor) {
+                return;
+            }
+            // rehashing 
+            list<Node>* oldBuckets = buckets;
+            initbuckets(2 * N);
+            n = 0;
+            for(int i = 0; i < N / 2; i++) {
+                for(auto itr = oldBuckets[i].begin(); itr != oldBuckets[i].end(); ++itr) {
+                    insert(itr->key, itr->value);
+                }   
+            }
+            delete[] oldBuckets;
+        }
+        
+        public:
+        MyUnorderedMap() {
+            initbuckets(4);
+            n = 0;
+            loadingFactor = 2;
+        }
+        
+        void insert(K key, V value) {
+            int bi = getBucketIndex(key);
+            typename list<Node>::iterator itr = find(key);
+            if(itr != buckets[bi].end()) {
+                itr->value = value;
+            } else {
+                buckets[bi].push_back(Node(key, value));
+                n++;
+                rehash();
+            } 
+        } 
+        
+        typename list<Node>::iterator find(K key) {
+            int bi = getBucketIndex(key);
+            typename list<Node>::iterator itr;
+            for(itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
+                if(itr->key == key) {
+                    return itr;
+                }
+            }
+            return itr;
+        }
+        
+        bool containsKey(K key) {
+            int bi = getBucketIndex(key);
+            typename list<Node>::iterator itr = find(key);
+            if(itr != buckets[bi].end()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        V remove(K key) {
+            int bi = getBucketIndex(key);
+            typename list<Node>::iterator itr = find(key);
+            if(itr != buckets[bi].end()) {
+                V val = itr->value;
+                buckets[bi].erase(itr);
+                n--;
+                return val;
+            } else {
+                // return default value of type V
+                return V();
+            }
+        }
+        
+        K* keyset() {
+            K* arr = new K[N];
+            int idx = 0;
+            for(int bi = 0; bi < N; bi++) {
+                for(auto itr = buckets[bi].begin(); itr != buckets[bi].end(); itr++) {
+                    arr[idx++] = itr->key; 
+                }
+            }
+            return arr;
+        }
+        
+        int size() {
+            return n;
+        }
+    };
+
+    int main() {
+        MyUnorderedMap<string, int>* umap = new MyUnorderedMap<string, int>();
+        umap->insert("navdeep", 101);
+        umap->insert("jaideep", 201);
+        umap->insert("amal", 401);
+        // cout << umap->containsKey("navdee") << endl;
+        cout << umap->remove("navdee") << endl;
+        string* arr = umap->keyset();
+        int n = umap->size();
+        for(int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        
+        return 0;
+    }
