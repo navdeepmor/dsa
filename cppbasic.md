@@ -349,8 +349,24 @@
 
 - Lower Bound
   
+  >= x
+
+  xIterator = lower_bound(arr, arr + n, x);
+  xIterator = lower_bound(vect.begin(), vect.end(), x)
+
+  xIndex = lower_bound(vect.begin(), vect.end(), x) - vect.begin()
 
 - Upper Bound
+
+- Max element
+
+  int ele = *max_element(arr, arr+n);
+
+- Array Sum
+
+  accumulate(arr, arr + n, 0);              - array
+  accumulate(vect.begin(), vect.end(), 0);  - vector
+
 
 - LinkList Node
   class Node {
@@ -369,6 +385,31 @@
   unordered_set<int> s;
   for(typename unordered_set<int>::iterator itr = s.begin(); itr != s.end(); itr++) {
     cout << *itr << " ";
+  }
+
+# Binary Tree
+  struct Node {
+      int data;
+      Node *left;
+      Node *right;
+      
+      Node(int val) {
+          data = val;
+          left = right = nullptr; // OR left = right = NULL;
+      }
+      /*
+        OR
+        Node(int val) : data(val), left(nullptr), right(nullptr) {}
+      */
+  };
+
+  int main() {
+      Node *root = new Node(3);
+      root->left = new Node(2);
+      root->right = new Node(7);
+      root->left->right = new Node(1);
+      
+      return 0;
   }
 
 # Linkedlist in c++
