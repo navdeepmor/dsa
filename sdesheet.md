@@ -137,6 +137,10 @@
 
   6. Morris Traversal - Inorder/Preorder [Threaded Binary Tree]
 
-  
+# Stack and Queues
 
-# 
+  1. Implement Min Stack
+
+  2. Postfix to Infix
+
+  3. 
