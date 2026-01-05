@@ -38,4 +38,11 @@ public:
 
 int main() {
     return 0;
+    /* 
+    appsetting.json
+
+    program.cs
+
+        builder.serverices.AddSql("ConnstringName").
+     */
 }
