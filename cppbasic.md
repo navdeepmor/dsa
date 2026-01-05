@@ -571,3 +571,18 @@
         
         return 0;
     }
+
+lambda:
+
+  unordered_map<string, function<int(int, int)>> operations = {
+      {"+", [](int a, int b) { return a + b; }},
+      {"-", [](int a, int b) { return a - b; }},
+      {"/", [](int a, int b) { return a / b; }},
+      {"*", [](int a, int b) { return a * b; }}};
+
+  function<int(int, int)> operation = operations["+"];
+
+npos: no-position
+
+  string operators = "+-*/";
+  if(operators.find("@") == string::npos) cout << "npos means end of string";
