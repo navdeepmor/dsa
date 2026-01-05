@@ -59,4 +59,4 @@ Monotonic Deque:
     }
 
     TC: O(n)
-    SP: O(k)
+    SC: O(k)
