@@ -74,7 +74,7 @@ Optimal:
         s2arr[r]++;
         if (s2arr[r] == s1arr[r]) {
             count++;
-        } else if (s2arr[r] == s1arr[r] + 1) {
+        } else if (s2arr[r] == s1arr[r] + 1) { // COUNT CHAR MISMATCH ONLY ONCE
             count--;
         }
 
@@ -82,7 +82,7 @@ Optimal:
         s2arr[l]--;
         if (s2arr[l] == s1arr[l]) {
             count++;
-        } else if (s2arr[l] == s1arr[l] - 1) {
+        } else if (s2arr[l] == s1arr[l] - 1) { // COUNT CHAR MISMATCH ONLY ONCE
             count--;
         }
     }
