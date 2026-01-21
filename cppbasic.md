@@ -586,3 +586,17 @@ npos: no-position
 
   string operators = "+-*/";
   if(operators.find("@") == string::npos) cout << "npos means end of string";
+
+optional:
+
+  vector<vector<optional<bool>>> memo(n + 1, vector<optional<bool>>(subSetSum + 1, nullopt));
+  if (memo[n][subSetSum] != nullopt) cout << "nullopt means null";
+
+auto:
+
+  for(auto &it : vect) sum += it;
+
+Comparator:
+
+  auto cmp = [](ListNode* l, ListNode* r) { return l->val > r->val; };
+  priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> q(cmp);

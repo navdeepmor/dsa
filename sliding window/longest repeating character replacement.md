@@ -24,7 +24,7 @@
         frequencyMap[currentChar]++;
         
         // Update max frequency in current window
-        maxFrequency = max(maxFrequency, frequencyMap[currentChar]);
+        maxFrequency = max(maxFrequency, frequencyMap[currentChar]); // ONLY NEED MAX FREQ. NOT MAX F. CHAR
         
         // Check if current window is valid
         // Window length - maxFrequency = number of characters that need to be replaced
