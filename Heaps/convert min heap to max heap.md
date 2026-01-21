@@ -1,4 +1,3 @@
-
     class Solution {
     private:
         void heapifyDown(int index, vector<int> &arr) {
@@ -28,3 +27,6 @@
             }
         }
     };
+
+    TC: O(n/2) ~ O(n)
+    SC: O(log n)
