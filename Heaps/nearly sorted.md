@@ -1,0 +1,1 @@
+Check if this is variant of nearly sorted - https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/description/?utm_source=chatgpt.com

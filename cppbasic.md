@@ -76,6 +76,7 @@
 
 - 2D VECTOR
   vector<vector<int> > a(rows, vector<int>(cols, initialize))                                                       
+  vector<vector<vector<int>>> dp(i, vector<vector<int>>(j, vector<int>(k, -1))); IMP
 
 - SORTING IN 2D ARRAY
   a => 3 2 5

@@ -28,5 +28,8 @@
         }
     };
 
-    TC: O(n/2) ~ O(n)
+    TC: O(n/2) ~ O(n) IMP 
     SC: O(log n)
+
+Similar Questions:
+    1. Build heap from a given array
